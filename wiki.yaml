@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wiki-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiki
+  template:
+    metadata:
+      labels:
+        app: wiki
+    spec:
+      containers:
+      - name: farm
+        image: dobbs/farm
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+          - name: dot-wiki
+            mountPath: /home/app/.wiki
+      volumes:
+      - name: dot-wiki
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wiki-service
+spec:
+  ports:
+  - name: http
+    targetPort: 3000
+    port: 80
+  selector:
+    app: wiki
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wiki-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: wiki.localtest.me
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: wiki-service
+          servicePort: http
