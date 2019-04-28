@@ -1,0 +1,9 @@
+ssl:
+  enabled: true
+  defaultCN: '*.localtest.me'
+  defaultSANList:
+    - localtest.me
+  generateTLS: true
+dashboard:
+  enabled: true
+  domain: ingres.localtest.me
