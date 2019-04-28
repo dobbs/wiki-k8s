@@ -15,13 +15,11 @@ those directly.
 
     brew install kubernetes-helm
     helm init   # TODO: learn about --tiller-tls-verify
-    helm install stable/traefik \
-      --name traefik \
-      --namespace kube-system \
-      --values traefik-values.yaml
+    helm install stable/traefik --name traefik \
+      --namespace kube-system --values traefik-values.yaml
     open http://ingres.localtest.me
 
-    kubectl apply -f wiki.yml
+    kubectl apply -f wiki.yaml
     open http://wiki.localtest.me
 
 # Other notes
@@ -70,3 +68,8 @@ chart for traefik. I took a particularly aggressive approach:
 
     # TODO: figure out all the settings & put them in wiki-traefik.yaml
     # namespace, domain, dashboard enabled(?), TLS details
+
+# Collected links
+
+- How to create a Helm Chart (e.g. to create a chart for wiki)
+  https://daemonza.github.io/2017/02/20/using-helm-to-deploy-to-kubernetes/
