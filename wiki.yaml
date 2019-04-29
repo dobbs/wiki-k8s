@@ -12,6 +12,18 @@ spec:
       labels:
         app: wiki
     spec:
+      initContainers:
+      - name: wiki-config
+        image: dobbs/farm
+        volumeMounts:
+          - name: dot-wiki
+            mountPath: /home/app/.wiki
+        env:
+        - name: DOMAIN
+          value: localtest.me
+        - name: COOKIE
+          value: secure
+        command: ["/home/app/configure-wiki"]
       containers:
       - name: farm
         image: dobbs/farm
@@ -22,7 +34,8 @@ spec:
             mountPath: /home/app/.wiki
       volumes:
       - name: dot-wiki
-        emptyDir: {}
+        hostPath:
+          path: /Users/dobbs/.wiki
 ---
 apiVersion: v1
 kind: Service
