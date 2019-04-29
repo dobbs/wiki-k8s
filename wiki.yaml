@@ -35,7 +35,7 @@ spec:
       volumes:
       - name: dot-wiki
         hostPath:
-          path: /Users/dobbs/.wiki
+          path: HOME/.wiki
 ---
 apiVersion: v1
 kind: Service
