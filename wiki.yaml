@@ -57,8 +57,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: wiki.localtest.me
-    http:
+  - http:
       paths:
       - path: /
         backend:
