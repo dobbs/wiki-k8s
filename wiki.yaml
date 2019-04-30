@@ -35,7 +35,7 @@ spec:
       volumes:
       - name: dot-wiki
         hostPath:
-          path: HOME/.wiki
+          path: HOME/.wiki-k8s
 ---
 apiVersion: v1
 kind: Service

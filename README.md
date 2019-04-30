@@ -9,7 +9,7 @@
 
 Modify wiki.yaml to configure for your local environment
 
-    perl -pi -e 's{^(\s+path: )HOME/.wiki$}{$1$ENV{"HOME"}/.wiki}' wiki.yaml
+    perl -pi -e 's{^(\s+path: )HOME(/.*)$}{$1$ENV{"HOME"}$2}' wiki.yaml
 
 Apply the configured wiki.yaml to your kubernetes cluster
 
