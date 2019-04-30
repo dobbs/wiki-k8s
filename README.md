@@ -6,7 +6,6 @@
     helm init   # TODO: learn about --tiller-tls-verify
     helm install stable/traefik --name traefik \
       --namespace kube-system --values traefik-values.yaml
-    open http://ingres.localtest.me
 
 Modify wiki.yaml to configure for your local environment
 
@@ -65,7 +64,7 @@ chart for traefik. I took a particularly aggressive approach:
 # TODO:
 - [x] figure out how to get TLS with self-signed certs locally
 - [ ] figure out how to get TLS with lets encrypt wildcard certs
-- [ ] figure out how to get wiki configured to define an owner & admin
+- [x] figure out how to get wiki configured to define an owner & admin
 - [ ] figure out how to upgrade wiki
 - [ ] test installing wiki plugins
 - [ ] figure out development workflow

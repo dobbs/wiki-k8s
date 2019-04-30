@@ -4,6 +4,3 @@ ssl:
   defaultSANList:
     - localtest.me
   generateTLS: true
-dashboard:
-  enabled: true
-  domain: ingres.localtest.me
