@@ -62,13 +62,13 @@ chart for traefik. I took a particularly aggressive approach:
 - [ ] find the links I was hanging onto about configuring x509 wildcard certs
 
 # TODO:
-- [x] figure out how to get TLS with self-signed certs locally
 - [ ] figure out how to get TLS with lets encrypt wildcard certs
-- [x] figure out how to get wiki configured to define an owner & admin
 - [ ] figure out how to upgrade wiki
-- [ ] test installing wiki plugins
 - [ ] figure out development workflow
 - [ ] test same installation with Digital Ocean k8s & real DNS names
+- [X] figure out how to get TLS with self-signed certs locally
+- [X] figure out how to get wiki configured to define an owner & admin
+- [X] test installing wiki plugins
 
 # Goals
 
