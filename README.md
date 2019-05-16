@@ -2,19 +2,41 @@
 
 # TL;DR
 
+Create a .env file similar to the following (substitute your own values)
+
+    FQDN=example.com
+    TOKEN_FILE=~/.digitalocean-token
+    ACME_EMAIL=someone@example.com
+
+Run script to create DNS records in digital ocean
+
+    ./local-dns-digital-ocean.sh
+
+Run script to merge env vars into .yaml files
+
+    ./merge-dot-env.sh
+
+Then install helm
+
     brew install kubernetes-helm
     helm init   # TODO: learn about --tiller-tls-verify
+
+Use helm to install traefik with our custom config
+
     helm install stable/traefik --name traefik \
       --namespace kube-system --values traefik-values.yaml
-
-Modify wiki.yaml to configure for your local environment
-
-    perl -pi -e 's{^(\s+path: )HOME(/.*)$}{$1$ENV{"HOME"}$2}' wiki.yaml
 
 Apply the configured wiki.yaml to your kubernetes cluster
 
     kubectl apply -f wiki.yaml
-    open http://wiki.localtest.me
+    open http://local.dbbs.co
+
+Get the admin password on your clipboard
+
+    kubectl exec -ti \
+      $(kubectl get pods | awk '/wiki-deployment.*Running/ {print $1}') \
+      -- jq -r .admin .wiki/config.json \
+      | pbcopy
 
 # Notes
 

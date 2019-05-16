@@ -1,0 +1,18 @@
+ssl:
+  enabled: true
+acme:
+  enabled: true
+  staging: true
+  logging: true
+  challengeType: "dns-01"
+  email: "ACME_EMAIL"
+  dnsProvider:
+    name: digitalocean
+    digitalocean:
+      DO_AUTH_TOKEN: "READ_TOKEN_FILE"
+  domains:
+    enabled: true
+    domainsList:
+      - main: "*.FQDN"
+      - sans:
+        - "FQDN"

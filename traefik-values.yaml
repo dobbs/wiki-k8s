@@ -1,6 +1,0 @@
-ssl:
-  enabled: true
-  defaultCN: '*.localtest.me'
-  defaultSANList:
-    - localtest.me
-  generateTLS: true

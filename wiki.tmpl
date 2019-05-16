@@ -20,7 +20,7 @@ spec:
             mountPath: /home/app/.wiki
         env:
         - name: DOMAIN
-          value: localtest.me
+          value: FQDN
         - name: COOKIE
           value: secure
         command: ["/home/app/configure-wiki"]
@@ -46,6 +46,9 @@ spec:
   - name: http
     targetPort: 3000
     port: 80
+  - name: https
+    targetPort: 3000
+    port: 443
   selector:
     app: wiki
 ---
@@ -55,6 +58,7 @@ metadata:
   name: wiki-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
+    traefik.frontend.entrypoints: http,https
 spec:
   rules:
   - http:
