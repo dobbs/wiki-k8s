@@ -12,10 +12,6 @@ Run script to create DNS records in digital ocean
 
     ./local-dns-digital-ocean.sh
 
-Run script to merge env vars into .yaml files
-
-    ./merge-dot-env.sh
-
 Then install helm
 
     brew install kubernetes-helm
@@ -24,7 +20,7 @@ Then install helm
 Use helm to install traefik with our custom config
 
     helm install stable/traefik --name traefik \
-      --namespace kube-system --values traefik-values.yaml
+      --namespace kube-system --values <(./traefik-values.yaml.sh)
 
 Apply the configured wiki.yaml to your kubernetes cluster
 
