@@ -24,14 +24,14 @@ Use helm to install traefik with our custom config
 
 Apply the configured wiki.yaml to your kubernetes cluster
 
-    kubectl apply -f wiki.yaml
+    kubectl apply -f <(./wiki.yaml.sh)
     open http://local.dbbs.co
 
 Get the admin password on your clipboard
 
     kubectl exec -ti \
       $(kubectl get pods | awk '/wiki-deployment.*Running/ {print $1}') \
-      -- jq -r .admin .wiki/config.json \
+      -- awk -F\" '/admin/ {print $4}' .wiki/config.json \
       | pbcopy
 
 # Notes
