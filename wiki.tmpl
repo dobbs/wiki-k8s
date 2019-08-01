@@ -32,10 +32,15 @@ spec:
         volumeMounts:
           - name: dot-wiki
             mountPath: /home/app/.wiki
+          - name: fedwiki
+            mountPath: /home/app/fedwiki
       volumes:
       - name: dot-wiki
         hostPath:
           path: HOME/.wiki-k8s
+      - name: fedwiki
+        hostPath:
+          path: HOME/workspace/fedwiki
 ---
 apiVersion: v1
 kind: Service
