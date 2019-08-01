@@ -84,7 +84,7 @@ chart for traefik. I took a particularly aggressive approach:
 - [ ] find the links I was hanging onto about configuring x509 wildcard certs
 
 # TODO:
-- [ ] figure out how to get TLS with lets encrypt wildcard certs
+- [X] figure out how to get TLS with lets encrypt wildcard certs
 - [ ] figure out how to upgrade wiki
 - [ ] figure out development workflow
 - [ ] test same installation with Digital Ocean k8s & real DNS names
